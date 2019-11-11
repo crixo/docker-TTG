@@ -1,0 +1,62 @@
+# Docker Compose file Reference (https://docs.docker.com/compose/compose-file/)
+
+version: '3'
+
+# Define services
+services:
+
+  # App Service
+  dino:
+    # Configuration for building the docker image for the service
+    # build:
+    #   context: . # Use an image built from the specified dockerfile in the current directory.
+    #   dockerfile: Dockerfile
+    image: crixo/dino
+    ports:
+      - "8080:8080" # Forward the exposed port 8080 on the container to port 8080 on the host machine
+    #restart: unless-stopped
+    depends_on: 
+      - mysql # This service depends on mysql. Start that first.
+    environment: # Pass environment variables to the service
+      - "WEB_SERVER_ADDRESS=:8080"
+      - "DB_CONN_STRING=root:my-secret-pw@tcp(mysql:3306)/Dino"
+      - "FRONTEND=/go/bin/dinowebportal/dinoTemplate"
+    networks: # Networks to join (Services on the same network can communicate with each other using their name)
+      - backend
+
+  # MySql Service   
+  mysql:
+    image: "mysql:5.7"   
+    volumes:
+      - ./data/datadir:/var/lib/mysql
+      - ./data/mysql-dump:/docker-entrypoint-initdb.d
+    environment:
+      - MYSQL_ROOT_PASSWORD=my-secret-pw
+      # - MYSQL_DATABASE=dino
+    ports:
+      - "3306"
+    #restart: unless-stopped
+    networks:
+      - backend
+
+  # PhpMyAdmin Service  
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+    # links:
+    #   - mysql
+    # environment:
+    #   PMA_HOST: mysql
+    #   PMA_PORT: 3306
+    restart: always
+    ports:
+      - 8081:80
+    volumes:
+      - /sessions
+    networks:
+      - backend
+
+networks:
+  backend:    

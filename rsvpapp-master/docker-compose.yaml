@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  web:
+    # Configuration for building the docker image for the service
+    build:
+      context: . # Use an image built from the specified dockerfile in the current directory.
+      dockerfile: Dockerfile
+    image: python-app:latest
+    ports:
+      - "10002:5000" 
+    depends_on: 
+      - db
+    environment:
+      - "MONGODB_HOST=db"
+      - "COMPANY=deltatre"
+    networks:
+      - backend
+      
+  db:
+    image: "mongo:3.3"
+    environment:
+      - MONGODB_DATABASE=rsvpdata
+    ports:
+      - "27017"
+    networks:
+      - backend
+networks:
+  backend:    

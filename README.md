@@ -1,23 +1,23 @@
-# docker at Torino Technologies Group
+# docker at Torino Tecnologies Group
 
 ## Toolkit
 
-- [Docker Desktop](https://www.docker.com/products/docker-desktop)  
+-  [Docker Desktop](https://www.docker.com/products/docker-desktop)  
 You have to create a docker hub account
 
-- [Docker Documentation](https://docs.docker.com/)
+-  [Docker Documentation](https://docs.docker.com/)
 
 ## Introduction
 
 - [Getting Started With Docker](https://dzone.com/refcardz/getting-started-with-docker-1?chapter=1)
 
-- [Getting started with Docker](https://collabnix.com/understanding-docker-container-image/)
+-  [Getting started with Docker](https://collabnix.com/understanding-docker-container-image/)
 
-- [Virtual Machine VS Container](https://medium.com/@deshanigeethika/docker-tutorial-a6aa5b41e3ff)
+- (Virtual Machine VS Container)[https://medium.com/@deshanigeethika/docker-tutorial-a6aa5b41e3ff]
 
-- [container vs docker](https://www.opencontainers.org/)
+- (container vs docker)[https://www.opencontainers.org/]
 
-- [Understanding Docker Container Architecture](https://medium.com/docker-captain/docker-basics-f1a06fde18fb)
+-  [Understanding Docker Container Architecture](https://medium.com/docker-captain/docker-basics-f1a06fde18fb)
 
 - [The twelve-factor app](https://12factor.net/)
 
@@ -47,7 +47,7 @@ Try all the steps using the [dotnetcore api sample](02_docker-workflow.md)
 
 -  Container as development environment
 
-
+Try all the steps using the [volumes sample](03_volumes.md)
 
 ## Advanced topics
 
@@ -57,7 +57,7 @@ Try all the steps using the [dotnetcore api sample](02_docker-workflow.md)
 
 -  Docker networking fundamentals
 
-
+Try all the steps using the [advanced sample](04_advanced.md)
 
 ## Local orchestration with docker-compose
 
@@ -65,10 +65,12 @@ Try all the steps using the [dotnetcore api sample](02_docker-workflow.md)
 
 -  Dino sample
 
-
+Try all the steps using the [docker compose sample](05_docker-compose.md)
 
 ## CI/CD examples
 
 -  Deploy a docker app using azure webapp
 
 -  github + travis + heroku
+
+Try all the steps using the [deploy docker image to an azure webapp](06_deploy-image-to-webapp.md)
