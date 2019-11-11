@@ -53,7 +53,7 @@ Try all the steps using the [volumes sample](03_volumes.md)
 
 -  Logs management
 
--  Undestanding ENTRYPOINT and CMD
+-  Understanding ENTRYPOINT and CMD
 
 -  Docker networking fundamentals
 
