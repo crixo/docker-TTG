@@ -72,7 +72,7 @@ you'll see the file on host filesystem as well
 Clean Up
 ```
 rm foo.txt
-docker stop $CNT_NAME_OR_ID
+exit
 ```
 
 ## Stateful app
@@ -98,6 +98,11 @@ cd /data/db
 ls
 ```
 
+stop&remove the mongo container
+```
+docker stop mongo-d3-lab
+```
+
 Run the container configuring a volume to store the database data on the host instead into the container
 ```
 docker run --rm -d -p 27017:27017 --name mongo-d3-lab -e MONGODB_DATABASE=rsvpdata -v $PWD/mongodata:/data/db  -e COMPANY=deltatre mongo:3.3
@@ -118,6 +123,7 @@ Get-NetIPAddress -AddressFamily IPv4
 # windows bash
 ipconfig | grep -A 5 Wi-Fi | grep "IPv4 Address"
 HOST_IP=$(ipconfig | grep -A 5 Wi-Fi | grep -E -o -m 1 "([0-9]{1,3}[\.]){3}[0-9]{1,3}")
+HOST_IP=$(ipconfig | grep -A 5 "Ethernet adapter Ethernet" | grep -E -o -m 1 "([0-9]{1,3}[\.]){3}[0-9]{1,3}")
 
 ip addr show
 
@@ -156,6 +162,11 @@ restart the mongo container showing the app is working and data are still availa
 docker start mongo-d3-lab
 ```
 
+Clean Up
+```
+docker rm -f mongo-d3-lab
+```
+
 ## Container as toolbox
 
 The ponzu docs example: use a container to create the documentation or IOW to browse locally the docs site.
@@ -166,8 +177,16 @@ Build the go webserver using the source code stored on the host using the go com
 ```
 docker run --rm -d -v $PWD/go-app:/usr/src/myapp -w /usr/src/myapp golang:alpine go build -v -o go-webserver
 ```
+```widows shell
+docker run --rm -d -v $PWD/go-app:/usr/src/myapp -w //usr/src/myapp golang:alpine go build -v -o go-webserver
+```
 
 go-webserver file will be created into the local go-app folder as build result
+
+Clean up
+```
+rm $PWD/go-app/go-webserver
+```
 
 Build and run the source code stored on the host from the interactive shell provided by the running container
 ```

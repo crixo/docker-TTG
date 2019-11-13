@@ -59,9 +59,6 @@ I'm using a local script w/ my azure values
 sh docker-run-local.sh
 ```
 
-show the [go app](https://docker-in-action-go-webserver.azurewebsites.net) hosted on azure
-
-
 In case you need to use a private container registry, you have to provide also the url and the credentials to access the private registry (refers to the documentation provided w/ the link at the topo of this page. The bash script contains the required azure cli command that has been commented out for this demo)
 
 For the sample we decided to use the public docker hub registry.  
@@ -73,6 +70,10 @@ but that's not expliclty need since docker hub is the default registry used by t
 
 - browse the app and check the environemnt variable through swagger
 https://docker-in-action-YOUR_IMAGE_NAME.azurewebsites.net/
+
+Show the following on azure portal
+- add *application settings* (aka environment variables) and retrieve it from swagger
+- enable logs and show the stdout in the *container settings* section
 
 -  Clean up 
 ```

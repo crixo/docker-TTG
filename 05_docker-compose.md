@@ -43,3 +43,5 @@ remove all containers using docker compose
 ```
 docker-compose down
 ```
+
+datadir survives to the containers deletion

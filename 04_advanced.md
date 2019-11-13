@@ -7,7 +7,9 @@ Show current docker log mode using docker cli
 docker info --format '{{.LoggingDriver}}'
 ```
 
-Change docker logs through the settings menu.  
+Change docker logs through the settings menu.
+
+[Supported docker logging drivers](https://docs.docker.com/config/containers/logging/configure/)
 
 Run the containe in an interactive mode
 ```
@@ -17,6 +19,7 @@ docker run --rm -ti --name dotnetcore-api -e my-env-var=my-env-var-value -p 1000
 open the [web app](http://localhost:10001) to make some api calls using swagger ui to generate logs, then show logs using docker cli
 ```
 docker logs dotnetcore-api
+docker logs dotnetcore-api -f
 ```
 
 use docker cli to retrieve additional information including the log location on the real host
@@ -91,4 +94,31 @@ https://docs.docker.com/v17.09/engine/userguide/networking/#the-docker_gwbridge-
 list all available networks
 ```
 docker network ls
+```
+
+create a custom network
+```
+docker network create --driver bridge my-bridge-net
+```
+
+attach 2 containers to the new network
+```
+docker run --rm --network=my-bridge-net -itd --name=container1 alpine
+docker run --rm --network=my-bridge-net -itd --name=container2 alpine
+```
+
+inspect container ip
+```
+docker inspect container2
+```
+
+connect to one container and ping the other by ip or name
+```
+docker exec -ti container1 sh
+```
+
+Clean Up
+```
+docker stop container1 container2
+docker network remove my-bridge-net
 ```
