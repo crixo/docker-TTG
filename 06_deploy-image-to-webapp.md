@@ -56,7 +56,8 @@ deploy-image-to-webapp
 ```
 I'm using a local script w/ my azure values
 ```
-sh docker-run-local.sh
+sh docker-run-local.sh dotnetcore-api
+sh docker-run-local.sh go-webserver
 ```
 
 In case you need to use a private container registry, you have to provide also the url and the credentials to access the private registry (refers to the documentation provided w/ the link at the topo of this page. The bash script contains the required azure cli command that has been commented out for this demo)
