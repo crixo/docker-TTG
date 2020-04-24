@@ -26,9 +26,9 @@ services:
 
   # MySql Service   
   mysql:
-    image: "mysql:5.7"   
+    image: "mysql:5.7.29"   
     volumes:
-      - ./data/datadir:/var/lib/mysql
+      #- ./data/datadir:/var/lib/mysql
       - ./data/mysql-dump:/docker-entrypoint-initdb.d
     environment:
       - MYSQL_ROOT_PASSWORD=my-secret-pw

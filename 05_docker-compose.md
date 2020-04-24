@@ -13,23 +13,23 @@ cd dino
 docker-compose up
 ```
 
-open the [web app](http://localhost:8080)
+- Open the [web app](http://localhost:8080)
 
-open the [phpmyadmin](http://localhost:8081) and fill the connection form w/ the following parameters:
-- mysql:3306
-- root
-- my-secret-pw
+- Open the [phpmyadmin](http://localhost:8081) and fill the connection form w/ the following parameters:
+  - mysql:3306
+  - root
+  - my-secret-pw
 
-Notice the followings:  
-- phpmyadmin access mysql using the docker compose network **dino_backend**
-```
-docker network ls
-```
-- mysql service uses volumes to store the data into the host filesystem (dino/datadir)
-- mysql service uses volumes to execute an init script that creates the data model and feed table w/ some testing data
-- depends_on simply drives the order used to *run* the containers. It does not wait until the related service is fully functional: depends_on is not like k8s readiness probe
+- Notice the followings:  
+  - phpmyadmin access mysql using the docker compose network **dino_backend**
+  ```
+  docker network ls
+  ```
+  - mysql service uses volumes to store the data into the host filesystem (dino/datadir)
+  - mysql service uses volumes to execute an init script that creates the data model and feed table w/ some testing data
+  - depends_on simply drives the order used to *run* the containers. It does not wait until the related service is fully functional: depends_on is not like k8s readiness probe
 
-stop the interctive shell using CTRL+C. The containers are stopped, not removed
+- Stop the interactive shell using CTRL+C. The containers are stopped, not removed
 ```
 docker ps -a
 ```
