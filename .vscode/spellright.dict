@@ -1,0 +1,5 @@
+ENTRYPOINT
+appsettings.json
+sha
+webserver
+ASPNETCORE

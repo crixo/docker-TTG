@@ -1,4 +1,4 @@
-# docker at Torino Tecnologies Group
+# docker at Torino Technologies Group
 
 ## Toolkit
 
@@ -17,17 +17,17 @@ You have to create a docker hub account
 
 - (container vs docker)[https://www.opencontainers.org/]
 
--  [Understanding Docker Container Architecture](https://medium.com/docker-captain/docker-basics-f1a06fde18fb)
+- [Understanding Docker Container Architecture](https://medium.com/docker-captain/docker-basics-f1a06fde18fb)
 
 - [The twelve-factor app](https://12factor.net/)
 
 ## Docker basic workflow
 
--  Understading the Dockerfile and the multistage build approach
+-  Understanding the Dockerfile and the multistage build approach
 
 -  Build an image
 
--  Run a container understaning port forwarding and environment variables
+-  Run a container understanding port forwarding and environment variables
 
 -  Interact with a running container
 
