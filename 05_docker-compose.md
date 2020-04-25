@@ -45,3 +45,8 @@ docker-compose down
 ```
 
 datadir survives to the containers deletion
+
+## RSVP
+
+Exercise: try to create a docker-compose to run the RSVP app we used during the volumes section.  
+Create a docker compose file that allows to have a fully functional environment with the app and the database within the same network.  

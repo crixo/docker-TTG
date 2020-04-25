@@ -120,24 +120,46 @@ docker stop container1 container2
 docker network remove my-bridge-net
 ```
 
-# What containers are for real?
+## What containers are for real?
 
 Dive into the linux VM
 ```
 docker run -it --rm --privileged --pid=host justincormack/nsenter1
 ```
 
+Containers are first of all processes
+```
+ps -o pid,ppid,comm,args | grep Woa
+```
+
+managed and controlled through
+
 [NAMESPACES](https://unix.stackexchange.com/questions/105403/how-to-list-namespaces-in-linux)
 ```
-lsns  -t pid -o ns,pid,command  | grep dotnetcore
+lsns  -t pid -o ns,pid,command  | grep Woa
 ```
 
 and
 
-[CGRPUS](https://serverfault.com/questions/560206/how-to-find-out-cgroup-of-a-particular-process) 
+[CGROUP](https://serverfault.com/questions/560206/how-to-find-out-cgroup-of-a-particular-process) 
 ```
 cat /proc/{{PID}}/cgroup 
 ```
 
+and 
 
+[UnionFS](https://stackoverflow.com/questions/32775594/why-does-docker-need-a-union-file-system)  
+- [Digging into Docker layers](https://medium.com/@jessgreb01/digging-into-docker-layers-c22f948ed612)
+- [Explaining Docker Image IDs](https://windsock.io/explaining-docker-image-ids/)
+```
+docker history dotnetcore-api
+docker inspect dotnetcore-api
+```
+
+Namespaces and Cgroup have *always* been out there, docker simply made easy to use it through api & cli.  
+[Enjoy the full explanation](https://vimeo.com/166694616)
+
+## Disk space & density
+
+```docker system df``` vs ```docker images```
 
