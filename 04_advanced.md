@@ -156,7 +156,7 @@ docker history dotnetcore-api
 docker inspect dotnetcore-api
 ```
 
-Namespaces and Cgroup have *always* been out there, docker simply made easy to use it through api & cli.  
+Namespaces and Cgroup have *always* been out there, docker simply made easy to use it through [api & cli](https://docs.docker.com/docker-for-mac/docker-toolbox/#the-docker-desktop-on-mac-environment).  
 [Enjoy the full explanation](https://vimeo.com/166694616)
 
 ## Disk space & density
