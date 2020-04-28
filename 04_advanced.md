@@ -129,14 +129,14 @@ docker run -it --rm --privileged --pid=host justincormack/nsenter1
 
 Containers are first of all processes
 ```
-ps -o pid,ppid,comm,args | grep Woa
+ps -o pid,ppid,comm,args | grep dotnetcore
 ```
 
 managed and controlled through
 
 [NAMESPACES](https://unix.stackexchange.com/questions/105403/how-to-list-namespaces-in-linux)
 ```
-lsns  -t pid -o ns,pid,command  | grep Woa
+lsns  -t pid -o ns,pid,command  | grep dotnetcore
 ```
 
 and

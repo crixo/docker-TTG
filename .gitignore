@@ -2,3 +2,4 @@ db_data/
 **/*local.*
 **/datadir
 **/mongodata
+~$*
