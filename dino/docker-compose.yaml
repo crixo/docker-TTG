@@ -29,7 +29,7 @@ services:
     image: "mysql:5.7.29"   
     volumes:
       #- ./data/datadir:/var/lib/mysql
-      - ./data/mysql-dump:/docker-entrypoint-initdb.d
+      - ./mysql-dump:/docker-entrypoint-initdb.d
     environment:
       - MYSQL_ROOT_PASSWORD=my-secret-pw
       # - MYSQL_DATABASE=dino
@@ -53,6 +53,8 @@ services:
     restart: always
     ports:
       - 8081:80
+    depends_on: 
+      - mysql # This service depends on mysql. Start that first.
     volumes:
       - /sessions
     networks:

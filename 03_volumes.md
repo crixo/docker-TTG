@@ -43,7 +43,7 @@ ls
 rm foo.txt
 exit
 
-# now you are inot the host shell
+# now you are into the host shell
 rm foo.txt
 ```
 Exiting the container, the container will be stopped and remove due to the --rm flag and also due to the shell is the main process.  

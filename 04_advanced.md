@@ -122,6 +122,11 @@ docker network remove my-bridge-net
 
 ## What containers are for real?
 
+Make sue you have the dotnetcore-api container running
+```
+docker run --rm -d --name dotnetcore-api -e my-env-var=my-env-var-value -p 10001:80 dotnetcore-api:latest
+```
+
 Dive into the linux VM
 ```
 docker run -it --rm --privileged --pid=host justincormack/nsenter1
@@ -152,8 +157,8 @@ and
 - [Digging into Docker layers](https://medium.com/@jessgreb01/digging-into-docker-layers-c22f948ed612)
 - [Explaining Docker Image IDs](https://windsock.io/explaining-docker-image-ids/)
 ```
-docker history dotnetcore-api
-docker inspect dotnetcore-api
+docker image history dotnetcore-api
+docker image inspect dotnetcore-api
 ```
 
 Namespaces and Cgroup have *always* been out there, docker simply made easy to use it through [api & cli](https://docs.docker.com/docker-for-mac/docker-toolbox/#the-docker-desktop-on-mac-environment).  
