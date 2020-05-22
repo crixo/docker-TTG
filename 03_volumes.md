@@ -206,3 +206,14 @@ and [browse the app](http://localhost:8082) from the host
 [NodeJs development environment sample](https://github.com/crixo/node-docker-dev-sample) with changes watcher
 
 [Debugging dotnetcore in docker](https://www.aaron-powell.com/posts/2019-04-04-debugging-dotnet-in-docker-with-vscode/)
+
+
+## VS Code Remote - Containers
+
+[VS Code Remote - Containers Development](https://code.visualstudio.com/docs/remote/containers) 
+
+[VS Code Remote - Containers Extension](https://code.visualstudio.com/remote-tutorials/containers/how-it-works)
+
+[VS Code Remote - Containers Examples repositories](https://github.com/microsoft?q=vscode-remote-try-&type=&language=)
+
+[Microsoft Dev Containers](https://hub.docker.com/_/microsoft-vscode-devcontainers)
