@@ -11,6 +11,12 @@ COPY . .
 WORKDIR /src
 RUN dotnet build -c Release -o /app
 
+# Build up to this stage, run and extract the test results
+# https://stackoverflow.com/questions/59330690/extract-file-from-multistage-docker-build
+# FROM build AS test
+# RUN dotnet test ./test/YourProjectFileWithUnitTests.csproj --logger trx /p:CollectCoverage=true  /p:CoverletOutputFormat=Cobertura /p:CoverletOutput=./CodeCoverage/
+# RUN dotnet test ./test/YourProjectFileWithServiceTests.csproj --logger trx 
+
 FROM build AS publish
 RUN dotnet publish -c Release -o /app
 

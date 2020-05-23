@@ -15,7 +15,7 @@ docker images -q --filter dangling=true | xargs docker rmi
 
 ***latest*** is just a convention
 -  do not rely on that convention to get the latest build
--  do not rely on the tag for immutability.  New image can be created w/ the same tag but w/ different content: check the ***image ID***
+-  do not rely on the tag for immutability. New image can be created w/ the same tag but w/ different content: check the ***image ID***
 
 ## Run container
 ```
