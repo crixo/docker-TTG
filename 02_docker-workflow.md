@@ -14,8 +14,9 @@ docker images -q --filter dangling=true | xargs docker rmi
 ```
 
 ***latest*** is just a convention
--  do not rely on that convention to get the latest build
--  do not rely on the tag for immutability. New image can be created w/ the same tag but w/ different content: check the ***image ID***
+- do not rely on that convention to get the latest build
+- do not rely on the tag for immutability. New image can be created w/ the same tag but w/ different content: check the ***image ID***
+- use always a [full semantic version tag](https://medium.com/@mccode/using-semantic-versioning-for-docker-image-tags-dfde8be06699) (eg.3.1.300) where available, not a partial alias (eg. 3.1)
 
 ## Run container
 ```

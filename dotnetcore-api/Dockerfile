@@ -1,3 +1,5 @@
+# upgrade to new MS 
+# registry https://hub.docker.com/_/microsoft-dotnet-core-sdk/?tab=description 
 FROM microsoft/dotnet:2.1.3-aspnetcore-runtime AS base
 WORKDIR /app
 EXPOSE 80
